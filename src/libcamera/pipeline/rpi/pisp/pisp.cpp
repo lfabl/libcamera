@@ -1087,8 +1087,8 @@ int PipelineHandlerPiSP::platformRegister(std::unique_ptr<RPi::CameraData> &came
 	data->cfe_[Cfe::Output0] = RPi::Stream("CFE Image", cfeImage, StreamFlag::RequiresMmap);
 	data->cfe_[Cfe::Embedded] = RPi::Stream("CFE Embedded", cfeEmbedded);
 	data->cfe_[Cfe::Stats] = RPi::Stream("CFE Stats", cfeStats);
-	data->cfe_[Cfe::Config] = RPi::Stream("CFE Config", cfeConfig,
-					      StreamFlag::Recurrent | StreamFlag::RequiresMmap);
+	// data->cfe_[Cfe::Config] = RPi::Stream("CFE Config", cfeConfig,
+	//				      StreamFlag::Recurrent | StreamFlag::RequiresMmap);
 
 	/* Tag the ISP input stream as an import stream. */
 	data->isp_[Isp::Input] =
