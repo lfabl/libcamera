@@ -2157,7 +2157,7 @@ int PiSPCameraData::configureEntities(V4L2SubdeviceFormat sensorFormat,
 
 	constexpr unsigned int csiVideoSinkPad = 0;
 	constexpr unsigned int csiVideoSourcePad = 1;
-	constexpr unsigned int csiMetaSourcePad = 2;
+	constexpr unsigned int csiMetaSourcePad = 5;
 
 	constexpr unsigned int feVideoSinkPad = 0;
 	constexpr unsigned int feConfigSinkPad = 1;
