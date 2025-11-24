@@ -606,11 +606,9 @@ int V4L2VideoDevice::open()
 
 	bool isConfigDevice = deviceNode().find("fe_config") != std::string::npos;
 
-	if(isConfigDevice && caps_.isVideoOutput()) {
+	if(isConfigDevice && caps_.isMetaOutput()) {
 		notifierType = EventNotifier::Write;
-		bufferType_ = caps_.isMultiplanar()
-			    ? V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE
-			    : V4L2_BUF_TYPE_VIDEO_OUTPUT;
+		bufferType_ = V4L2_BUF_TYPE_META_OUTPUT;
 	} else if (caps_.isVideoCapture()) {
 		notifierType = EventNotifier::Read;
 		bufferType_ = caps_.isMultiplanar()
