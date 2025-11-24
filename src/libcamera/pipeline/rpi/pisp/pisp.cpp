@@ -1073,7 +1073,7 @@ int PipelineHandlerPiSP::platformRegister(std::unique_ptr<RPi::CameraData> &came
 	MediaEntity *cfeImage = cfe->getEntityByName("rp1-cfe-fe_image0");
 	MediaEntity *cfeEmbedded = cfe->getEntityByName("rp1-cfe-embedded");
 	MediaEntity *cfeStats = cfe->getEntityByName("rp1-cfe-fe_stats");
-	MediaEntity *cfeConfig = cfe->getEntityByName("rp1-cfe-fe_config");
+	// MediaEntity *cfeConfig = cfe->getEntityByName("rp1-cfe-fe_config");
 	MediaEntity *ispInput = isp->getEntityByName("pispbe-input");
 	MediaEntity *IpaPrepare = isp->getEntityByName("pispbe-config");
 	MediaEntity *ispOutput0 = isp->getEntityByName("pispbe-output0");
