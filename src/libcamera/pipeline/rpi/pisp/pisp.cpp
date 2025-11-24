@@ -881,9 +881,9 @@ bool PipelineHandlerPiSP::match(DeviceEnumerator *enumerator)
 	 */
 	for (unsigned int i = 0; i < numCfeDevices; i++) {
 		DeviceMatch cfe("rp1-cfe");
-		cfe.add("rp1-cfe-fe-image0");
-		cfe.add("rp1-cfe-fe-stats");
-		cfe.add("rp1-cfe-fe-config");
+		cfe.add("rp1-cfe-fe_image0");
+		cfe.add("rp1-cfe-fe_stats");
+		cfe.add("rp1-cfe-fe_config");
 		MediaDevice *cfeDevice = acquireMediaDevice(enumerator, cfe);
 
 		if (!cfeDevice) {
@@ -1070,10 +1070,10 @@ int PipelineHandlerPiSP::platformRegister(std::unique_ptr<RPi::CameraData> &came
 	PiSPCameraData *data = static_cast<PiSPCameraData *>(cameraData.get());
 	int ret;
 
-	MediaEntity *cfeImage = cfe->getEntityByName("rp1-cfe-fe-image0");
-	MediaEntity *cfeEmbedded = cfe->getEntityByName("rp1-cfe-csi2-ch1");
-	MediaEntity *cfeStats = cfe->getEntityByName("rp1-cfe-fe-stats");
-	MediaEntity *cfeConfig = cfe->getEntityByName("rp1-cfe-fe-config");
+	MediaEntity *cfeImage = cfe->getEntityByName("rp1-cfe-fe_image0");
+	MediaEntity *cfeEmbedded = cfe->getEntityByName("rp1-cfe-embedded");
+	MediaEntity *cfeStats = cfe->getEntityByName("rp1-cfe-fe_stats");
+	MediaEntity *cfeConfig = cfe->getEntityByName("rp1-cfe-fe_config");
 	MediaEntity *ispInput = isp->getEntityByName("pispbe-input");
 	MediaEntity *IpaPrepare = isp->getEntityByName("pispbe-config");
 	MediaEntity *ispOutput0 = isp->getEntityByName("pispbe-output0");
