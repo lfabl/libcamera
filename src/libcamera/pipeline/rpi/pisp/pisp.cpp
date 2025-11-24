@@ -2177,7 +2177,7 @@ int PiSPCameraData::configureEntities(V4L2SubdeviceFormat sensorFormat,
 
 	csi2->pads()[csiMetaSourcePad]->links()[0]->setEnabled(sensorMetadata_);
 
-	fe->pads()[feConfigSinkPad]->links()[0]->setEnabled(true);
+	// fe->pads()[feConfigSinkPad]->links()[0]->setEnabled(true);
 	fe->pads()[feVideo0SourcePad]->links()[0]->setEnabled(true);
 	fe->pads()[feVideo1SourcePad]->links()[0]->setEnabled(false);
 	fe->pads()[feStatsSourcePad]->links()[0]->setEnabled(true);
