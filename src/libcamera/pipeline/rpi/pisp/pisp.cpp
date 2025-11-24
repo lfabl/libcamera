@@ -1073,7 +1073,7 @@ int PipelineHandlerPiSP::platformRegister(std::unique_ptr<RPi::CameraData> &came
 	MediaEntity *cfeImage = cfe->getEntityByName("rp1-cfe-fe_image0");
 	MediaEntity *cfeEmbedded = cfe->getEntityByName("rp1-cfe-embedded");
 	MediaEntity *cfeStats = cfe->getEntityByName("rp1-cfe-fe_stats");
-	// MediaEntity *cfeConfig = cfe->getEntityByName("rp1-cfe-fe_config");
+	MediaEntity *cfeConfig = cfe->getEntityByName("rp1-cfe-fe_config");
 	MediaEntity *ispInput = isp->getEntityByName("pispbe-input");
 	MediaEntity *IpaPrepare = isp->getEntityByName("pispbe-config");
 	MediaEntity *ispOutput0 = isp->getEntityByName("pispbe-output0");
@@ -1087,8 +1087,8 @@ int PipelineHandlerPiSP::platformRegister(std::unique_ptr<RPi::CameraData> &came
 	data->cfe_[Cfe::Output0] = RPi::Stream("CFE Image", cfeImage, StreamFlag::RequiresMmap);
 	data->cfe_[Cfe::Embedded] = RPi::Stream("CFE Embedded", cfeEmbedded);
 	data->cfe_[Cfe::Stats] = RPi::Stream("CFE Stats", cfeStats);
-	// data->cfe_[Cfe::Config] = RPi::Stream("CFE Config", cfeConfig,
-	//				      StreamFlag::Recurrent | StreamFlag::RequiresMmap);
+	data->cfe_[Cfe::Config] = RPi::Stream("CFE Config", cfeConfig,
+					      StreamFlag::Recurrent | StreamFlag::RequiresMmap);
 
 	/* Tag the ISP input stream as an import stream. */
 	data->isp_[Isp::Input] =
@@ -1617,7 +1617,7 @@ int PiSPCameraData::platformConfigure(const RPi::RPiCameraConfiguration *rpiConf
 	/* CFE config format. */
 	format = {};
 	format.fourcc = V4L2PixelFormat(V4L2_META_FMT_RPI_FE_CFG);
-	ret = cfe_[Cfe::Config].dev()->setFormat(&format);
+	// ret = cfe_[Cfe::Config].dev()->setFormat(&format);
 	if (ret) {
 		LOG(RPI, Error) << "Failed to set format on CFE config stream: "
 				<< format;
